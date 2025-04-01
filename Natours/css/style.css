@@ -1,8 +1,57 @@
-/*
-COLORS:
+*{ 
+    margin:0;
+    padding: 0;
+    box-sizing: border-box; /* borders and padding are no longer added to height or width  */
+} /* universal selector */
 
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
+body {
+    font-family: "Lato",sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7; /* 1.7 times bigger than the default */
+    color: #777;
+    padding: 20px;
+}
 
-*/
+.header{
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba(126,213,111,0.8), rgba(40,180,131,0.8)) ,url('../img/hero.jpg'); 
+    /* linear gradient created and started top to right bottom and colors decided and we made the opacity low so the image can be visible */
+    background-size: cover; /* whatever the size of the height it will fit */
+    background-position: top; /* the top of the image always be set on top */
+    /* to cut the shapes */
+    clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%); /* we will decide the coodinates now */
+                    /*( x y,  x    y,    x     y,  x   y)  */
+}
+.logo-box {
+    position: absolute;
+    top: 30px;
+    left: 30px; 
+}
+.logo {
+    height: 35px;
+}
+.text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 50 percent of the element to top and left so it will stay in the middle */
+}
+.heading-primary{
+    color: #fff;
+    text-transform: uppercase; /* All uppercased letters */
+}
+
+.heading-primary-main{
+    display: block; /* whole webpage line long */
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;  /* space between the letters */
+}
+.heading-primary-sub{
+    display: block; /* to create in the down line this is the best way */
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 15px;
+}
