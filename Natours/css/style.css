@@ -13,6 +13,7 @@ body {
     padding: 20px;
 }
 
+/*! HEADER PART !*/
 .header{
     position: relative;
     height: 95vh;
@@ -31,16 +32,23 @@ body {
 }
 .logo {
     height: 35px;
-}
+ }
+ /*
+.logo:hover{
+    animation: moveInRight 1s ease-out;
+} */
 .text-box{
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); /* 50 percent of the element to top and left so it will stay in the middle */
+    text-align: center;
 }
 .heading-primary{
     color: #fff;
     text-transform: uppercase; /* All uppercased letters */
+    backface-visibility: hidden; /* backface element will be hidden for the user, we have shaking for move in right and left thats why we useing this to get rid of this shake */
+    margin-bottom: 60px;
 }
 
 .heading-primary-main{
@@ -48,10 +56,108 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;  /* space between the letters */
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in; /* animation's procceed the styles you can create here like "steps", "frames", cubic-bezier */
+    /*
+    animation-iteration-count: 3; it will happen 3 times
+    animation-delay: 1s; 
+    */
 }
 .heading-primary-sub{
     display: block; /* to create in the down line this is the best way */
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 15px;
+    animation: moveInRight 1s ease-out; /* all the top ones in one line*/
+}
+
+/* for css animations use => @keyframes and "animations" keywords */
+
+@keyframes moveInLeft{
+    0%{
+        /* this is start of animation*/
+        opacity: 0;
+        transform: translateX(-100px) ; /* animate will start from left in X direction which is the horizantal */ 
+    }
+    80%{
+        transform: translateX(10px); /* it will go to the right side, it will go right and 10px left */
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+@keyframes moveInRight{
+    0%{
+        /* this is start of animation*/
+        opacity: 0;
+        transform: translateX(100px); /* animate will start from left in X direction which is the horizantal */ 
+    }
+    80%{
+        transform: translateX(-10px); 
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0); 
+    }
+}
+.btn:link,
+.btn:visited{ /* we use this in speacial condition. this functions as a link, this is clicked the button once and it will be show clicked */
+    text-transform: uppercase; /* we made the letters in upper case */
+    text-decoration: none; /* we are clearing the link looking, it was looking blue and underlined */
+    padding: 15px 40px;
+    /* this is inline element thats why we will put it a block */
+    display: inline-block; 
+    border-radius: 100px;
+    transition: all .2s; /* transistion property for the transition between hover and active */
+    position: relative; /* for the after element */
+}
+.btn:hover{
+    transform: translateY(-3px); /* we are moving it to top */
+    box-shadow: 0 10px 20px rgba(0,0,0,.2); /* complete black but opacity */
+
+}
+.btn:active{ /* when we click an element the effects for the element */
+     transform: translateY(0);
+     box-shadow: 0 5px 10px rgba(0,0,0,.2); /* we decresed the blur places so it will be look like pressed */
+}
+.btn-white{
+    background-color: #fff;
+    color: #777; /* this will be one its clicked */
+}
+.btn::after{ /* this is like exactly the same element but behind it so basicly you are creating another one behind the element*/
+    content: ""; /* this is always necessary */
+    display: inline-block; /* this is also neccessary */
+    height: 100%;
+    width: 100%; 
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* now definetly behind */
+    transition: all .4s; /* we are writing here because this is initial state  */
+}/* this is child of the main element and behind it */
+
+.btn-white::after{
+    background-color: #fff;
+}
+
+.btn:hover::after{ /* behind the hovered element */
+    transform: scaleX(1.4) scaleY(1.6); /* simply increasing the element size and we decided their transform places */
+    opacity: 0;
+}
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0); 
+    }
+}
+.btn-animated{
+    animation: moveInBottom 0.5s ease-out .5s; /* last one is animation delay */
+    animation-fill-mode: backwards; /* this applys the animations before this one start so this one is puttin himself backwards */
 }
