@@ -1,18 +1,22 @@
-*{ 
+*, 
+*::after, 
+*::before { 
     margin:0;
     padding: 0;
-    box-sizing: border-box; /* borders and padding are no longer added to height or width  */
+    box-sizing: inherit;
 } /* universal selector */
-
+html{
+    font-size: 62.5%; /* now 1rem is 10px, also if you use % percent technic for the user responsive design, ( 62.5% * 16 = 10px) */
+}
 body {
     font-family: "Lato",sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7; /* 1.7 times bigger than the default */
     color: #777;
-    padding: 20px;
+    padding: 2rem;
+    box-sizing: border-box; /* borders and padding are no longer added to height or width  */
 }
-
 /*! HEADER PART !*/
 .header{
     position: relative;
@@ -25,19 +29,19 @@ body {
     clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%); /* we will decide the coodinates now */
                     /*( x y,  x    y,    x     y,  x   y)  */
 }
-.logo-box {
+.header__logo-box {
     position: absolute;
-    top: 30px;
-    left: 30px; 
+    top: 3rem;
+    left: 3rem; 
 }
-.logo {
-    height: 35px;
+.header__logo {
+    height: 3.5rem;
  }
  /*
 .logo:hover{
     animation: moveInRight 1s ease-out;
 } */
-.text-box{
+.header__text-box{
     position: absolute;
     top: 40%;
     left: 50%;
@@ -48,14 +52,14 @@ body {
     color: #fff;
     text-transform: uppercase; /* All uppercased letters */
     backface-visibility: hidden; /* backface element will be hidden for the user, we have shaking for move in right and left thats why we useing this to get rid of this shake */
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
-.heading-primary-main{
+.heading-primary--main{
     display: block; /* whole webpage line long */
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;  /* space between the letters */
+    letter-spacing: 3.5rem;  /* space between the letters */
     animation-name: moveInLeft;
     animation-duration: 2s;
     animation-timing-function: ease-in; /* animation's procceed the styles you can create here like "steps", "frames", cubic-bezier */
@@ -64,11 +68,11 @@ body {
     animation-delay: 1s; 
     */
 }
-.heading-primary-sub{
+.heading-primary--sub{
     display: block; /* to create in the down line this is the best way */
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 400;
-    letter-spacing: 15px;
+    letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out; /* all the top ones in one line*/
 }
 
@@ -78,10 +82,10 @@ body {
     0%{
         /* this is start of animation*/
         opacity: 0;
-        transform: translateX(-100px) ; /* animate will start from left in X direction which is the horizantal */ 
+        transform: translateX(-10rem) ; /* animate will start from left in X direction which is the horizantal */ 
     }
     80%{
-        transform: translateX(10px); /* it will go to the right side, it will go right and 10px left */
+        transform: translateX(1rem); /* it will go to the right side, it will go right and 10px left */
     }
     100%{
         opacity: 1;
@@ -92,10 +96,10 @@ body {
     0%{
         /* this is start of animation*/
         opacity: 0;
-        transform: translateX(100px); /* animate will start from left in X direction which is the horizantal */ 
+        transform: translateX(10rem); /* animate will start from left in X direction which is the horizantal */ 
     }
     80%{
-        transform: translateX(-10px); 
+        transform: translateX(-1rem); 
     }
     100%{
         opacity: 1;
@@ -106,23 +110,23 @@ body {
 .btn:visited{ /* we use this in speacial condition. this functions as a link, this is clicked the button once and it will be show clicked */
     text-transform: uppercase; /* we made the letters in upper case */
     text-decoration: none; /* we are clearing the link looking, it was looking blue and underlined */
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     /* this is inline element thats why we will put it a block */
     display: inline-block; 
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s; /* transistion property for the transition between hover and active */
     position: relative; /* for the after element */
 }
 .btn:hover{
     transform: translateY(-3px); /* we are moving it to top */
-    box-shadow: 0 10px 20px rgba(0,0,0,.2); /* complete black but opacity */
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2); /* complete black but opacity */
 
 }
 .btn:active{ /* when we click an element the effects for the element */
      transform: translateY(0);
-     box-shadow: 0 5px 10px rgba(0,0,0,.2); /* we decresed the blur places so it will be look like pressed */
+     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2); /* we decresed the blur places so it will be look like pressed */
 }
-.btn-white{
+.btn--white{
     background-color: #fff;
     color: #777; /* this will be one its clicked */
 }
@@ -131,7 +135,7 @@ body {
     display: inline-block; /* this is also neccessary */
     height: 100%;
     width: 100%; 
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -139,25 +143,81 @@ body {
     transition: all .4s; /* we are writing here because this is initial state  */
 }/* this is child of the main element and behind it */
 
-.btn-white::after{
+.btn--white::after{
     background-color: #fff;
 }
 
 .btn:hover::after{ /* behind the hovered element */
     transform: scaleX(1.4) scaleY(1.6); /* simply increasing the element size and we decided their transform places */
-    opacity: 0;
+    opacity: 0; 
 }
 @keyframes moveInBottom {
     0%{
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
     100%{
         opacity: 1;
         transform: translate(0); 
     }
 }
-.btn-animated{
+.btn--animated{
     animation: moveInBottom 0.5s ease-out .5s; /* last one is animation delay */
     animation-fill-mode: backwards; /* this applys the animations before this one start so this one is puttin himself backwards */
 }
+
+/* "!important" when we used a !important keyword in any other element it will disable the other ones and it will use the !important keyword used one */
+/* nav#nav div.pull-right .button{}  => you can use it with id clases and elements */
+
+/* 
+.button{
+    font-size: 20px;
+    color:white;
+    background-color: blue;
+}
+a{
+background-color: purple !important;
+}
+#nav div.pull-right a.button{
+    background-color: orangered;
+} this one has more specifity than the one on bottom so thats why this will work
+    #nav a.button:hover{
+    background-color: yellow;
+} 
+
+!browsers specify a root font-size for each page and it usually 16px
+rem = n * 16px
+em = n * 24px
+
+"inherit" keyword forces inheritence on a certain property
+"initial" keyword resets a property to its initial value
+
+? WE MADE ALL OF THEM REM BECAUSE WE SETTLED THE HTML FONT-SIZE: 10PX; SO 1 REM IS 10PX;
+
+content: => text, images ..
+box-sizing: border-box; => it includes the padding and borders to the total height and width normally it doesnt
+
+display: block; =>  
+display: list-item; => 
+display: table; => 
+
+display: inline; =>
+
+display: inline-block => 
+
+float: left; =>
+float: right; =>
+
+position: absolute; =>
+position: fixed; =>
+
+7-1 pattern => 7 folders for partial files ( base, components, lyout, pages, themes, abstacts, vendors folders ), 1 Sass File for CSS folder
+*/
+
+/*! SASS START */
+/*
+sass source code compiling sass to compiled css code
+SASS allows => uses variables, math operations, css in different files, mixing, functions, extends, control directives
+Sass / Scss different syntax (curly paranthesis ..) but same process so sass = scss 
+*/
+
