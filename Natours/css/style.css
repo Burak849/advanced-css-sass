@@ -1,223 +1,163 @@
-*, 
-*::after, 
-*::before { 
-    margin:0;
-    padding: 0;
-    box-sizing: inherit;
-} /* universal selector */
-html{
-    font-size: 62.5%; /* now 1rem is 10px, also if you use % percent technic for the user responsive design, ( 62.5% * 16 = 10px) */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-    font-family: "Lato",sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7; /* 1.7 times bigger than the default */
-    color: #777;
-    padding: 2rem;
-    box-sizing: border-box; /* borders and padding are no longer added to height or width  */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 2rem;
+  box-sizing: border-box;
 }
-/*! HEADER PART !*/
-.header{
-    position: relative;
-    height: 95vh;
-    background-image: linear-gradient(to right bottom, rgba(126,213,111,0.8), rgba(40,180,131,0.8)) ,url('../img/hero.jpg'); 
-    /* linear gradient created and started top to right bottom and colors decided and we made the opacity low so the image can be visible */
-    background-size: cover; /* whatever the size of the height it will fit */
-    background-position: top; /* the top of the image always be set on top */
-    /* to cut the shapes */
-    clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%); /* we will decide the coodinates now */
-                    /*( x y,  x    y,    x     y,  x   y)  */
+
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
+
 .header__logo-box {
-    position: absolute;
-    top: 3rem;
-    left: 3rem; 
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
 }
+
 .header__logo {
-    height: 3.5rem;
- }
- /*
-.logo:hover{
-    animation: moveInRight 1s ease-out;
-} */
-.header__text-box{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* 50 percent of the element to top and left so it will stay in the middle */
-    text-align: center;
-}
-.heading-primary{
-    color: #fff;
-    text-transform: uppercase; /* All uppercased letters */
-    backface-visibility: hidden; /* backface element will be hidden for the user, we have shaking for move in right and left thats why we useing this to get rid of this shake */
-    margin-bottom: 6rem;
+  height: 3.5rem;
 }
 
-.heading-primary--main{
-    display: block; /* whole webpage line long */
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;  /* space between the letters */
-    animation-name: moveInLeft;
-    animation-duration: 2s;
-    animation-timing-function: ease-in; /* animation's procceed the styles you can create here like "steps", "frames", cubic-bezier */
-    /*
-    animation-iteration-count: 3; it will happen 3 times
-    animation-delay: 1s; 
-    */
-}
-.heading-primary--sub{
-    display: block; /* to create in the down line this is the best way */
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out; /* all the top ones in one line*/
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
-/* for css animations use => @keyframes and "animations" keywords */
-
-@keyframes moveInLeft{
-    0%{
-        /* this is start of animation*/
-        opacity: 0;
-        transform: translateX(-10rem) ; /* animate will start from left in X direction which is the horizantal */ 
-    }
-    80%{
-        transform: translateX(1rem); /* it will go to the right side, it will go right and 10px left */
-    }
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
 }
-@keyframes moveInRight{
-    0%{
-        /* this is start of animation*/
-        opacity: 0;
-        transform: translateX(10rem); /* animate will start from left in X direction which is the horizantal */ 
-    }
-    80%{
-        transform: translateX(-1rem); 
-    }
-    100%{
-        opacity: 1;
-        transform: translate(0); 
-    }
+
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 .btn:link,
-.btn:visited{ /* we use this in speacial condition. this functions as a link, this is clicked the button once and it will be show clicked */
-    text-transform: uppercase; /* we made the letters in upper case */
-    text-decoration: none; /* we are clearing the link looking, it was looking blue and underlined */
-    padding: 1.5rem 4rem;
-    /* this is inline element thats why we will put it a block */
-    display: inline-block; 
-    border-radius: 10rem;
-    transition: all .2s; /* transistion property for the transition between hover and active */
-    position: relative; /* for the after element */
-}
-.btn:hover{
-    transform: translateY(-3px); /* we are moving it to top */
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.2); /* complete black but opacity */
-
-}
-.btn:active{ /* when we click an element the effects for the element */
-     transform: translateY(0);
-     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2); /* we decresed the blur places so it will be look like pressed */
-}
-.btn--white{
-    background-color: #fff;
-    color: #777; /* this will be one its clicked */
-}
-.btn::after{ /* this is like exactly the same element but behind it so basicly you are creating another one behind the element*/
-    content: ""; /* this is always necessary */
-    display: inline-block; /* this is also neccessary */
-    height: 100%;
-    width: 100%; 
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* now definetly behind */
-    transition: all .4s; /* we are writing here because this is initial state  */
-}/* this is child of the main element and behind it */
-
-.btn--white::after{
-    background-color: #fff;
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
 }
 
-.btn:hover::after{ /* behind the hovered element */
-    transform: scaleX(1.4) scaleY(1.6); /* simply increasing the element size and we decided their transform places */
-    opacity: 0; 
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn--white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
 @keyframes moveInBottom {
-    0%{
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-    100%{
-        opacity: 1;
-        transform: translate(0); 
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
-.btn--animated{
-    animation: moveInBottom 0.5s ease-out .5s; /* last one is animation delay */
-    animation-fill-mode: backwards; /* this applys the animations before this one start so this one is puttin himself backwards */
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out 0.5s;
+  animation-fill-mode: backwards;
 }
 
-/* "!important" when we used a !important keyword in any other element it will disable the other ones and it will use the !important keyword used one */
-/* nav#nav div.pull-right .button{}  => you can use it with id clases and elements */
-
-/* 
-.button{
-    font-size: 20px;
-    color:white;
-    background-color: blue;
-}
-a{
-background-color: purple !important;
-}
-#nav div.pull-right a.button{
-    background-color: orangered;
-} this one has more specifity than the one on bottom so thats why this will work
-    #nav a.button:hover{
-    background-color: yellow;
-} 
-
-!browsers specify a root font-size for each page and it usually 16px
-rem = n * 16px
-em = n * 24px
-
-"inherit" keyword forces inheritence on a certain property
-"initial" keyword resets a property to its initial value
-
-? WE MADE ALL OF THEM REM BECAUSE WE SETTLED THE HTML FONT-SIZE: 10PX; SO 1 REM IS 10PX;
-
-content: => text, images ..
-box-sizing: border-box; => it includes the padding and borders to the total height and width normally it doesnt
-
-display: block; =>  
-display: list-item; => 
-display: table; => 
-
-display: inline; =>
-
-display: inline-block => 
-
-float: left; =>
-float: right; =>
-
-position: absolute; =>
-position: fixed; =>
-
-7-1 pattern => 7 folders for partial files ( base, components, lyout, pages, themes, abstacts, vendors folders ), 1 Sass File for CSS folder
-*/
-
-/*! SASS START */
-/*
-sass source code compiling sass to compiled css code
-SASS allows => uses variables, math operations, css in different files, mixing, functions, extends, control directives
-Sass / Scss different syntax (curly paranthesis ..) but same process so sass = scss 
-*/
-
+/*# sourceMappingURL=style.css.map */
