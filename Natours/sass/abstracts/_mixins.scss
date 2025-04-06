@@ -1,0 +1,8 @@
+@mixin clearfix {
+    &::after{ // we used ampersand because we want to use in the following steps in the declaration
+        content: ""; // alwasy specify 
+        display: table; // table value
+        clear: both; // clear left and right
+
+    }
+}
