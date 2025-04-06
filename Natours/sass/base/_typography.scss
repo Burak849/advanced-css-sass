@@ -29,3 +29,32 @@ body {
         animation: moveInRight 1s ease-out;
     }
 }
+.heading-secondary{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text; // background-image clipped exactly the place where the text sits, it will be only visible where the text is
+    color:transparent;
+    letter-spacing: .2rem; // this will always change the size depends to the device
+    transition: all .2s;
+
+    &:hover{
+        transform: skewY(2deg) skewX(15deg) scale(1.1); // this skewY makes it one part go up the other part go down transform and skewX makes in in horizantal
+        text-shadow: .5rem 1rem 2rem rgba($color-black,.2); // .2 opacity and the shadow
+    }
+}
+
+.heading-tertiary{
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.paragraph{
+    font-size: $default-font-size;
+    
+    &:not(:last-child){ // all of them exept the last child
+        margin-bottom: 3rem;
+    }
+}

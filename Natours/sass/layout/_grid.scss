@@ -1,6 +1,6 @@
 .row{
     max-width: $grid-width; // 1140 px
-    background-color: #eee;
+    // background-color: #eee;
     margin: 0 auto; // left and right auto bottom and top 0 it will be centered on the project
     margin-bottom: $gutter-vertical;
 
@@ -13,7 +13,7 @@
     [class^="col-"]{ // attributes helps us to select all the elements that has written in the brackets 
         // adding ^ let us to select starting elements for example if it start with col- select them there are also more
         // adding * contained ones selected 
-        background-color: orangered;
+        // background-color: orangered;
         float: left; // always float the columns left
 
         &:not(:last-child){
