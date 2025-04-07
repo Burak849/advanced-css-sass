@@ -5,3 +5,16 @@
     padding: 25rem 0; // top 25 rem and bottom 0
     margin-top: -20vh; // we can give negative margin to get rid of clip path side
 }
+
+.section-features{
+    padding: 20rem 0;
+    background-image: linear-gradient( to right bottom, rgba($color-primary-light,0.8), rgba($color-primary-dark,0.8) ) ,url('../img/nat-4.jpg');
+    background-size: cover; 
+    // simply similar to clip path but another way to do
+    transform: skewY(-8deg);
+    margin-top: -14rem; // this is to arrange the bg color
+
+    & > * { //! this means diret child features and its "class row" in index file we made the boxes to the normal skew now
+    transform: skewY(8deg);
+    } 
+}
