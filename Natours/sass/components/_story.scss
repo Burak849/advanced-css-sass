@@ -1,0 +1,61 @@
+.story{
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba( $color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 7rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+    // & > * {this wont work this time because we have couple transforms beucase we wre making it notr before
+
+    // }
+
+    &__shape{
+        width: 15rem;
+        height: 15rem;
+        float: left; // it will float to left 
+        -webkit-shape-outside:  circle(50% at 50% 50% ); 
+        shape-outside: circle(50% at 50% 50% ); // radius, horizantaly, verticaly this only works with webkit
+        -webkit-clip-path: circle(50% at 50% 50% );// clip path also works with webkit for other browsers
+        clip-path:  circle(50% at 50% 50% );
+        transform: translateX(-4rem) skewx(12deg) translateY(-2rem);
+        position: relative;
+    }
+    &__image{
+        // width: 100%;
+        height: 100%;
+        transform: translateX(-4rem) scale(1.3);
+        backface-visibility: hidden; 
+        transition: all .5s;
+    }
+
+    &__text{
+     transform: skewX(12deg);   
+    }
+    &__caption{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 30%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0; // initail state before hover
+        transition: all .5s;
+        backface-visibility: hidden; // to hide the glitch
+    }
+
+    &:hover &__caption{ 
+        opacity: 1;
+        transform: translate(-50%, -30%);
+    }
+    &:hover &__image{
+        transform: translateX(-4rem) scale(1);
+        filter: blur(.3rem) brightness(80%); // make it darker
+        // you can use like hue-rotate ...
+    }
+}
