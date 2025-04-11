@@ -20,6 +20,9 @@ body {
         animation-name: moveInLeft;
         animation-duration: 2s;
         animation-timing-function: ease-in;
+
+        @include respond(phone){ letter-spacing: 1rem; font-family: 5rem; }
+
     }
     &--sub{
         display: block; 
@@ -27,6 +30,8 @@ body {
         font-weight: 400;
         letter-spacing: 1.75rem;
         animation: moveInRight 1s ease-out;
+        @include respond(phone){ letter-spacing: .5rem; }
+
     }
 }
 .heading-secondary{
@@ -39,6 +44,9 @@ body {
     color:transparent;
     letter-spacing: .2rem; // this will always change the size depends to the device
     transition: all .2s;
+
+    @include respond(tab-port){ font-size: 3rem; }
+    @include respond(phone){ font-size: 2.5rem; }
 
     &:hover{
         transform: skewY(2deg) skewX(15deg) scale(1.1); // this skewY makes it one part go up the other part go down transform and skewX makes in in horizantal

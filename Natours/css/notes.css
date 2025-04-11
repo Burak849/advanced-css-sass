@@ -197,22 +197,22 @@ em = n * 24px
 content: => text, images ..
 box-sizing: border-box; => it includes the padding and borders to the total height and width normally it doesnt
 
-display: block; =>  
-display: list-item; => 
-display: table; => 
+display: block; =>  element starts from new line
+display: list-item; => element's behavior like a list item it will be bullet sign in the beginning
+display: table; => to use grid format in tables
 
-display: inline; =>
+display: inline; => disables height and width and it will be stay in the line's size 
 
-display: inline-block => 
+display: inline-block => it will be in line like "inline" but you can change width and height 
 
-float: left; =>
-float: right; =>
+float: left; => element leans left the other elements will go to the right
+float: right; => element leans right the other elements will go to the left
 
-position: absolute; =>
-position: fixed; =>
+position: absolute; => it will be get its position according to the parent relative elemet
+position: fixed; => it will be fixed on the window
 
-clear: both; =>
-x::after => 
+clear: both; => the element will go both side to get rid of float's effect
+x::after =>  it acts like after element effect
 
 7-1 pattern => 7 folders for partial files ( base, components, lyout, pages, themes, abstacts, vendors folders ), 1 Sass File for CSS folder
 */

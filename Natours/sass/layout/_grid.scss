@@ -6,7 +6,11 @@
 
     &:not(:last-child){ // without the "not" it is selecting the last child, with "not" its opposite so it means everything exept the last child
         margin-bottom: $gutter-vertical;
+        @include respond(tab-port){ margin-bottom: $gutter-vertical-sm; }
+
     } // we did that becasue we dont want margin on the last one
+    
+    @include respond(tab-port){ max-width: 50rem; padding: 0 3rem; }
 
     @include clearfix; // mixin 
 
@@ -18,7 +22,10 @@
 
         &:not(:last-child){
             margin-right: $gutter-horizantal;
+            @include respond(tab-port){ margin-right: 0; margin-bottom: $gutter-vertical-sm; }
         }
+            @include respond(tab-port){ width: 100% !important; }
+
     } 
 
     .col-1-of-2{ // we are putting 2 blocks so it will be like 

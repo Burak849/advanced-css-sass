@@ -7,10 +7,31 @@
     padding: 0;
     box-sizing: inherit;
 } 
+
 html{
     // this defines what 1 rem is
-    font-size: 62.5%;
+    font-size: 62.5%; // let rem stay same (10px) and use em (16px) for the responsive designs
+
+    // Responsive Design
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 50% (backward)
+    }
+    @include respond(tab-port) {
+        font-size: 50%;
+    } 
+    @include respond(phone) {
+        font-size: 30%;
+    } 
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
+
 }
 body {
     box-sizing: border-box; // this must stay in base file
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    } 
 }
