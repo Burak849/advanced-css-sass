@@ -244,4 +244,6 @@ so mixin and extends are similar but different purposes
 
 ! after "npm init" => we are using  "npm install -g sass" is creating sass files
 
+
+main.sass => style.comp.css => style.concat.css (icon-font.css) => style.prefix.css => style.css
 */

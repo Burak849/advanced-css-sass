@@ -25,16 +25,29 @@
         width: 15rem;
         height: 15rem;
         float: left; // it will float to left 
-        -webkit-shape-outside:  circle(50% at 50% 50% ); 
-        shape-outside: circle(50% at 50% 50% ); // radius, horizantaly, verticaly this only works with webkit
-        -webkit-clip-path: circle(50% at 50% 50% );// clip path also works with webkit for other browsers
-        clip-path:  circle(50% at 50% 50% );
+        
+        // -webkit-shape-outside:  circle(50% at 50% 50% ); 
+        // shape-outside: circle(50% at 50% 50% ); // radius, horizantaly, verticaly this only works with webkit
+        
         transform: translateX(-4rem) skewx(12deg) translateY(-2rem);
         position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        // -webkit-clip-path: circle(50% at 50% 50% );// clip path also works with webkit for other browsers
+        // clip-path:  circle(50% at 50% 50% );
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)){ //! safari support
+            -webkit-clip-path: circle(50% at 50% 50% ); 
+            clip-path:  circle(50% at 50% 50% );
+
+            -webkit-shape-outside:  circle(50% at 50% 50% ); 
+            shape-outside: circle(50% at 50% 50% ); // radius, horizantaly, verticaly this only works with webkit
+        
+            border-radius: none;
+        } 
 
         @include respond(phone){
             transform: translateX(-4rem) skewX(0);
-            
         }
     }
     &__image{

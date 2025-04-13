@@ -10,6 +10,15 @@
     visibility: hidden;
     transition: all .3s;
 
+    @supports(-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)){ // if this property supported
+        
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px); // for examply this is supported in safari not in chrome    
+        background-color: rgba($color-black, .3);
+
+    } // this kod is not supported so it doesnt work
+    
+
     &:target &__content{
         opacity: 1;
         transform: translate(-50%,-50%) scale(1);
@@ -53,14 +62,14 @@
 
     &__left{
         display: table-cell;
-        width: 33%;
+        width: 34%;
         // float: left; for the other way
     }
     &__right{
         display: table-cell;
         vertical-align: middle; // table-cell align operator
         width: 67%;
-        padding: 3rem 5rem;
+        padding: 1rem 3rem;
         // float: left;
     }
     &__img{
