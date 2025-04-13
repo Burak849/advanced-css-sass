@@ -6,7 +6,7 @@
     margin-top: -20vh; // we can give negative margin to get rid of clip path side
 
     @include respond(tab-port){
-        padding: 20rem 0;
+        padding: 32rem 0;
     }
 }
 
