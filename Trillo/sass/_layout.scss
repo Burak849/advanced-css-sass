@@ -39,6 +39,9 @@
     border-bottom: var(--line);
 }
 .description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     font-size: 1.5rem;
     flex: 0 0 60%; // dont grow and shrink 60% basis
     box-shadow: var(--shadow-light);
@@ -48,4 +51,9 @@
 }
 .user-reviews{
     flex:1;
+    font-size: 1.4rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
