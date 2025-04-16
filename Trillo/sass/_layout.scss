@@ -5,9 +5,20 @@
     box-shadow: var(--shadow-dark);
     min-height: 50rem; // testing
     border-radius: 2rem;
+
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0; // we are appearing the background color from margin
+        max-width: 100%;
+        width: 100%;
+    }
 }
 .content{
     display: flex;
+
+    @media only screen and (max-width: $bp-medium) {
+       flex-direction: column;
+    }
+    
 }
 .header{
     font-size: 1.4rem;
@@ -26,6 +37,7 @@
 
     background-color: var(--color-grey-dark-1);
     flex: 0 0 18%; // flex-grow, flex-shrink, flex-basis
+
 }
 .hotel-view{ 
     background-color: #fff;
@@ -37,6 +49,13 @@
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
     border-bottom: var(--line);
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem;
+     }
+     @media only screen and (max-width: $bp-small) { // when we put media queries first put the bigger one then the smaller one
+        flex-direction: column;
+     }
 }
 .description{
     display: flex;
@@ -48,6 +67,15 @@
     padding: 3rem;
     background-color: #fff;
     margin-right: 4.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        margin-right: 3rem;
+        padding: 3rem;
+     }
+     @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+     }
 }
 .user-reviews{
     flex:1;
