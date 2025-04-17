@@ -5,4 +5,88 @@ flex: 1; => makes the element grow to fill available space equally with other fl
 order: 1; => changes the element's position in the flex container, placing it after any element lower defualt value is 0 
 flex-shrink: 1; => allows the element to shrink if necessary when there is no space in the flex container
 flex: 0 0 300px ; => flex-grow, flex-shrink and flex-basis in order
+
+display: grid; =>
+display: grid-inline; =>
+
+- Grid => Grid's container will be filled with grid items. It separeted with column and rows between the column and rows (called grid track)
+there is gutter and 4 of them making grid area and only one of the cell is "grid cell"
+
+
+
+!                CONTAINER                                                                   ITEM
+--------------------------------------------------------------------------------------------------------------------------------
+    grid-template-rows      }                               |          grid-row-start    }
+    grid-template-columns   } =>  grid-template             |          grid-row-end      }   => grid-row      }
+    grid-template-areas     }                               |          grid-column-start }   => grid-column   } => grid-area 
+                                                            |          grid-column-end   }
+    grid-row-gap            }                               |
+    grid-column-gap         } =>  grid-gap                  |         justify-self
+                                                            |         align-self
+    justify-items                                           |
+    align-items                                             |         order
+    justify-content                                         |
+    align-content                                           |
+                                                            |
+    grid-auto-rows                                          |
+    grid-auto-columns                                       |
+    grid-auto-flow                                          |
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+$ => dollar sign in html making it increasing by 1 for example => .item--$*2 => item--1, item--2 ... 
+
+
+  display: grid;
+  grid-template-rows: repeat(2 , 150px );
+  grid-template-columns: repeat(2, 150px) 1fr; //2 of them 150 1 of them 300px
+  grid-template-columns: repeat(3, 1fr); // it filled whole area
+  fr => fractional unit so it will fill whole the area
+  if you write 1fr 2fr 1fr => it will be like 150px area 300px area and 150px area grid works like this
+  grid-row-gap: 40px;
+  grid-column-gap: 40px;
+  grid-gap: 40px; // for both row and column gaps
+
+! A METHOD TO DEFINE THE PAGE PALETTE
+.palette{
+  height: auto;
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #eed;
+  
+  display:grid;
+  grid-template-rows: 100px 200px 400px 100px;
+  grid-template-columns: repeat(3, 1fr) 200px;
+  grid-gap: 30px;
+
+grid-template-areas: ". head head ." // defines first row, dots mean empty
+                     "box-1 box-2 box-3 side" // second row
+                     "main main main side" // third row
+                     "foot foot foot foot"; // forth row
+& > * { 
+  padding: 20px;
+  color: #fff;
+  font-size: 38px;
+  font-family:sans-serif;
+  background-color: orangered;
+}
+.header{
+  grid-area: head;
+}
+.small-box-1 {grid-area:box-1;}
+.small-box-2 {grid-area:box-1;}
+.small-box-3 {grid-area:box-1;}
+
+  .sidebar{
+  grid-area: side;
+}
+  .content{
+  grid-area: main;
+}
+  .footer{
+  grid-area:foot;
+  }
+}
+
+
 */

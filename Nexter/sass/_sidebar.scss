@@ -1,0 +1,6 @@
+.sidebar{
+    background-color: $color-primary;
+    grid-column: sidebar-start / sidebar-end; // coming from base file
+    grid-row: 1 / -1; // start in the beginning and goes until to the end
+
+}
