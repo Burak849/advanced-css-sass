@@ -1,5 +1,30 @@
 .features{
-    background-color: $color-grey-dark-2;
+    // background-color: $color-grey-dark-2;
     grid-column: center-start / center-end; // from center-start to all the way center-end
     
+    margin: 15rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    // grid-template-rows: auto auto; we dont need this right now it works
+    grid-gap: 5rem;
+    align-items: start; // because they are in a grid and there is no empty place now
+} 
+
+.feature{
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+
+
+    &__icon{
+        fill:$color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        grid-row: 1 / span 2; // start the first till the end -1 means last explocid grid here it doesnt make sesne thats why we will use span 2 which is the end row
+        transform: translateY(-1rem); // icon will go 10px up
+    }
+    &__text{
+        font-size: 1.7rem;
+    }
 }
