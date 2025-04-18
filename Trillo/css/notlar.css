@@ -88,5 +88,9 @@ grid-template-areas: ". head head ." // defines first row, dots mean empty
   }
 }
 
+Coding order for SCSS
+1-> Styles
+2-> Responsive Design Media Queries
+3-> Support browsers
 
 */

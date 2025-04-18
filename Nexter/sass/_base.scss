@@ -14,6 +14,13 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+// Media query Variables
+$bp-largest: 75rem; // 1200/16 = 75rem
+$bp-large: 62.5em; // 1000px / 16 = 62.5
+$bp-medium: 50em; // 800/16 = 50em
+$bp-small: 37.5em; // 600/16 = 37.5em
+
+
 *,
 *::before,
 *::after{
@@ -24,6 +31,10 @@ $font-display: 'Josefin Sans', sans-serif;
 html{
     box-sizing: border-box;
     font-size: 62.5%; // 10/16 = 62.5, 1rem = 10px
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%; // 1rem 10px but now 8px for 75em
+    }
 }
 body{
     font-family: $font-primary;
@@ -41,8 +52,16 @@ body{
      // we are giving column names to use effeciently
      //! perfect way to seperated sections
 
-     & > * {
-        padding: 40px;
-        font-size: 3rem;
-     }
+     @media only screen and (max-width: $bp-large) {
+        grid-template-rows: 6rem 80vh min-content 40vw repeat(3,min-content);
+        grid-template-columns: [full-start] minmax(6rem,1fr) [center-start] 
+        repeat(8, [col-start] minmax(min-content, 14rem) [col-end])[center-end] 1fr [full-end]; // using names will be much better for responsive
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-rows: 6rem calc(100vh - 6rem); //min-content min-content min-content repeat(3,min-content); 
+        // calc funtion to sub 6rem margin from top,  rest of the comment line is unnecessary 
+
+    }
+    
 }

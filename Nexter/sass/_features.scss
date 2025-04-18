@@ -8,9 +8,30 @@
     // grid-template-rows: auto auto; we dont need this right now it works
     grid-gap: 5rem;
     align-items: start; // because they are in a grid and there is no empty place now
+    /* Another way 
+   
+   
+    @supports (display:grid){
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 5rem;
+    align-items: start;
+
+    }
+    */
 } 
 
 .feature{
+/* Older methods
+        float:left;
+        width: 33.3333%;
+        margin-bottom: 6rem;
+    @supports (display:grid){
+            width:auto;
+            margin-bottom: 0;
+        }
+*/
     display: grid;
     grid-template-columns: min-content 1fr;
     grid-row-gap: 1.5rem;
